@@ -21,10 +21,12 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
-task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') << {
-    version.release = true
-    ant.propertyfile(file: versionFile) {
-        entry(key: 'release', type: 'string', operation: '=', value: 'true')
+task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') {
+    doLast {
+        version.release = true
+        ant.propertyfile(file: versionFile) {
+            entry(key: 'release', type: 'string', operation: '=', value: 'true')
+        }
     }
 }
 
@@ -45,29 +47,34 @@ task backupReleaseDistribution(type: Copy) {
     into "$buildDir/backup"
 }
 
-task release(dependsOn: backupReleaseDistribution) << {
-    logger.quiet 'Releasing the project...'
+task release(dependsOn: backupReleaseDistribution) {
+    doLast {
+        logger.quiet 'Releasing the project...'
+    }
 }
 
+// task 规则命名模式，可以进行一定的代码提取复用
 tasks.addRule("Pattern: increment<Classifier>Version – Increments the project version classifier.") { String taskName ->
     if (taskName.startsWith('increment') && taskName.endsWith('Version')) {
-        task(taskName) << {
-            String classifier = (taskName - 'increment' - 'Version').toLowerCase()
-            String currentVersion = version.toString()
+        task(taskName) {
+            doLast {
+                String classifier = (taskName - 'increment' - 'Version').toLowerCase()
+                String currentVersion = version.toString()
 
-            switch (classifier) {
-                case 'major': ++version.major
-                    break
-                case 'minor': ++version.minor
-                    break
-                default: throw new GradleException("Invalid version type '$classifier. Allowed types: ['Major', 'Minor']")
-            }
+                switch (classifier) {
+                    case 'major': ++version.major
+                        break
+                    case 'minor': ++version.minor
+                        break
+                    default: throw new GradleException("Invalid version type '$classifier. Allowed types: ['Major', 'Minor']")
+                }
 
-            String newVersion = version.toString()
-            logger.info "Incrementing $classifier project version: $currentVersion -> $newVersion"
+                String newVersion = version.toString()
+                logger.info "Incrementing $classifier project version: $currentVersion -> $newVersion"
 
-            ant.propertyfile(file: versionFile) {
-                entry(key: classifier, type: 'int', operation: '+', value: 1)
+                ant.propertyfile(file: versionFile) {
+                    entry(key: classifier, type: 'int', operation: '+', value: 1)
+                }
             }
         }
     }
