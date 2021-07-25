@@ -20,6 +20,7 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
+// 自定义 task 的实现，主要使用继承和注解
 class ReleaseVersionTask extends DefaultTask {
     @Input Boolean release
     @OutputFile File destFile

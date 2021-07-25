@@ -20,6 +20,7 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
+// 使用自定义 Task
 task makeReleaseVersion(type: ReleaseVersionTask) {
     release = version.release
     destFile = versionFile
