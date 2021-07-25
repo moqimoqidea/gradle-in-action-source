@@ -1,3 +1,14 @@
-task first << { println "first" }
-task second << { println "second" }
+task first {
+    doLast {
+        println "first"
+    }
+}
+task second {
+    doLast {
+        println "second"
+    }
+}
+
+// https://docs.gradle.org/current/userguide/more_about_tasks.html
+// Finalizer tasks
 first.finalizedBy second

@@ -22,6 +22,8 @@ class ProjectVersion {
     }
 }
 
-task printVersion << {
-    logger.quiet "Version: $version"
+task printVersion {
+    doLast {
+        logger.quiet "Version: $version"
+    }
 }
