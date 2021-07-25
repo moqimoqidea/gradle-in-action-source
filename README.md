@@ -122,3 +122,15 @@ task wrapper(type: Wrapper) {
 # 需要被更新为
 wrapper {
 ```
+
+#### build-announcements not exist
+
+[Upgrading your build from Gradle 5.x to 6.0](https://docs.gradle.org/current/userguide/upgrading_version_5.html)
+
+> The announce and build-announcements plugins have been removed
+> 
+> The deprecated announce and build-announcements plugins have been removed. 
+> 
+> There are a number of community-provided plugins for sending out notifications available on the [Gradle Plugin Portal](https://plugins.gradle.org/).
+
+
