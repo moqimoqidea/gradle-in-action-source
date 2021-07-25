@@ -37,5 +37,10 @@ java -cp build/libs/todo-app.jar com.manning.gia.todo.ToDoApp
 ```shell
 # error: Source option 6 is no longer supported. Use 7 or later.
 # error: Target option 6 is no longer supported. Use 7 or later.
-sourceCompatibility = 1.7
+# sourceCompatibility = 1.7
+
+# warning: [options] source value 7 is obsolete and will be removed in a future release
+# warning: [options] target value 7 is obsolete and will be removed in a future release
+# warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+sourceCompatibility = 1.8
 ```
