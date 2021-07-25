@@ -16,4 +16,5 @@ bin
 *.sublime-workspace
 .vagrant
 listing_02_01-dynamic-task-and-task-dependencies
+listing_02_01-dynamic-task-and-task-dependencies/gradle/
 listing_02_01-dynamic-task-and-task-dependencies/!build.gradle
