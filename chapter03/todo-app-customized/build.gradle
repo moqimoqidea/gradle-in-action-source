@@ -13,6 +13,8 @@ sourceSets {
 
 buildDir = 'out'
 
+// before: java -cp out/libs/todo-app-customized-0.1.jar com.manning.gia.todo.ToDoApp
+// after: java -jar out/libs/todo-app-customized-0.1.jar
 jar {
     manifest {
         attributes 'Main-Class': 'com.manning.gia.todo.ToDoApp'
