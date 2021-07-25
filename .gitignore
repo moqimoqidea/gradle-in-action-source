@@ -15,3 +15,4 @@ bin
 *.sublime-project
 *.sublime-workspace
 .vagrant
+listing_02_01-dynamic-task-and-task-dependencies/g*
