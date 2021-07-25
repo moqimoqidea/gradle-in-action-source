@@ -20,8 +20,10 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
-task printVersion << {
-    logger.quiet "Version: $version"
+task printVersion {
+    doLast {
+        logger.quiet "Version: $version"
+    }
 }
 
 class ProjectVersion {
