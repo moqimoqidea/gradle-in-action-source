@@ -20,14 +20,18 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
-task printVersion << {
-    logger.quiet "Version: $version"
+task printVersion {
+    doLast {
+        logger.quiet "Version: $version"
+    }
 }
 
-task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') << {
-    version.release = true
-    ant.propertyfile(file: versionFile) {
-        entry(key: 'release', type: 'string', operation: '=', value: 'true')
+task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') {
+    doLast {
+        version.release = true
+        ant.propertyfile(file: versionFile) {
+            entry(key: 'release', type: 'string', operation: '=', value: 'true')
+        }
     }
 }
 
