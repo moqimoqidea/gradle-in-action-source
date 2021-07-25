@@ -11,6 +11,6 @@ dependencies {
     implementation 'jstl:jstl:1.2'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.2'
+wrapper {
+    gradleVersion = '7.1.1'
 }

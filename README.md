@@ -112,3 +112,13 @@ gradle appRun
 ```
 
 **DSL: jettyRun -> gretty**, 参考 [Gretty configuration](https://gretty-gradle-plugin.github.io/gretty-doc/Gretty-configuration.html).
+
+#### warpper 更新
+
+* [Cannot add task 'wrapper' as a task with that name already exists](https://stackoverflow.com/a/54741656)
+
+```text
+task wrapper(type: Wrapper) {
+# 需要被更新为
+wrapper {
+```
