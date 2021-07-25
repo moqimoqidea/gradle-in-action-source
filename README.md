@@ -64,3 +64,9 @@ sourceCompatibility = 1.8
 #### main -> mainClass
 
 > The JavaExec.main property has been deprecated. This is scheduled to be removed in Gradle 8.0. Please use the mainClass property instead. See [JavaExec:main](https://docs.gradle.org/7.1.1/dsl/org.gradle.api.tasks.JavaExec.html#org.gradle.api.tasks.JavaExec:main) for more details.
+
+#### jetty -> gretty-gradle-plugin/gretty
+
+* [Gretty gradle plugin: Getting started](https://gretty-gradle-plugin.github.io/gretty-doc/Getting-started.html)
+* [Error while replacing jetty plugin to gretty plugin gradle](https://stackoverflow.com/a/50122733)
+* [Error:(2, 0) Plugin with id 'jetty' not found](https://stackoverflow.com/a/53650574)

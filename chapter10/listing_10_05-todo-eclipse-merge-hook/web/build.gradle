@@ -1,7 +1,7 @@
 import org.gradle.plugins.ide.eclipse.model.Facet
 
 apply plugin: 'war'
-apply plugin: 'jetty'
+apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
 apply plugin: 'groovy'
 apply plugin: 'eclipse-wtp'
 
@@ -20,7 +20,7 @@ ext.seleniumVersion = '2.32.0'
 dependencies {
     compile project(':repository')
     providedCompile 'javax.servlet:servlet-api:2.5'
-    runtime 'javax.servlet:jstl:1.1.2'
+    runtimeOnly 'javax.servlet:jstl:1.1.2'
     runtime 'taglibs:standard:1.1.2'
     testCompile 'org.codehaus.groovy:groovy:2.0.6'
     testCompile 'junit:junit:4.11'

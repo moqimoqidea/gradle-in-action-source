@@ -24,7 +24,7 @@ project(':web') {
     version = projectIds.version
     apply plugin: 'java'
     apply plugin: 'war'
-    apply plugin: 'jetty'
+    apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
 
     repositories {
         mavenCentral()
@@ -33,6 +33,6 @@ project(':web') {
     dependencies {
         compile project(':repository')
         providedCompile 'javax.servlet:servlet-api:2.5'
-        runtime 'javax.servlet:jstl:1.1.2'
+        runtimeOnly 'javax.servlet:jstl:1.1.2'
     }
 }
