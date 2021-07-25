@@ -110,3 +110,5 @@ gradle appRun
 19:53:55 INFO  ToDo Application runs at:
 19:53:55 INFO    http://localhost:8080/todo-webapp-customized
 ```
+
+**DSL: jettyRun -> gretty**, 参考 [Gretty configuration](https://gretty-gradle-plugin.github.io/gretty-doc/Gretty-configuration.html).
