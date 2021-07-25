@@ -20,6 +20,7 @@ ProjectVersion readVersion() {
     new ProjectVersion(min: versionProps.major.toInteger(), maj: versionProps.minor.toInteger(), prodReady: versionProps.release.toBoolean())
 }
 
+// 为 makeReleaseVersion task 设置单独的属性值
 task makeReleaseVersion(type: ReleaseVersionTask) {
     release = version.prodReady
     destFile = new File('project-version.properties')
