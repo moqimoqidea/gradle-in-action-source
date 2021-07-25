@@ -21,10 +21,12 @@ ProjectVersion readVersion() {
     new ProjectVersion(versionProps.major.toInteger(), versionProps.minor.toInteger(), versionProps.release.toBoolean())
 }
 
-task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') << {
-    version.release = true
-    ant.propertyfile(file: versionFile) {
-        entry(key: 'release', type: 'string', operation: '=', value: 'true')
+task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') {
+    doLast {
+        version.release = true
+        ant.propertyfile(file: versionFile) {
+            entry(key: 'release', type: 'string', operation: '=', value: 'true')
+        }
     }
 }
 
@@ -45,8 +47,10 @@ task backupReleaseDistribution(type: Copy) {
     into "$buildDir/backup"
 }
 
-task release(dependsOn: backupReleaseDistribution) << {
-    logger.quiet 'Releasing the project...'
+task release(dependsOn: backupReleaseDistribution) {
+    doLast {
+        logger.quiet 'Releasing the project...'
+    }
 }
 
 class ProjectVersion {
