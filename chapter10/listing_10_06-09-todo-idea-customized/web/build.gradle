@@ -17,7 +17,7 @@ ext.seleniumVersion = '2.32.0'
 dependencies {
     compile project(':repository')
     providedCompile 'javax.servlet:servlet-api:2.5'
-    runtimeOnly 'javax.servlet:jstl:1.1.2'
+    implementation 'jstl:jstl:1.2'
     runtime 'taglibs:standard:1.1.2'
     testCompile 'org.codehaus.groovy:groovy:2.0.6'
     testCompile 'junit:junit:4.11'

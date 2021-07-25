@@ -11,7 +11,7 @@ ext.seleniumVersion = '2.32.0'
 
 dependencies {
     providedCompile 'javax.servlet:servlet-api:2.5'
-    runtimeOnly 'javax.servlet:jstl:1.1.2'
+    implementation 'jstl:jstl:1.2'
     testCompile 'org.codehaus.groovy:groovy:2.0.6'
     testCompile 'junit:junit:4.11'
     functTestCompile 'org.codehaus.geb:geb-junit4:0.7.2'

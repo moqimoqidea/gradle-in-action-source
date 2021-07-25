@@ -11,7 +11,7 @@ repositories {
 dependencies {
     compile project(':repository')
     providedCompile 'javax.servlet:servlet-api:2.5'
-    runtimeOnly 'javax.servlet:jstl:1.1.2'
+    implementation 'jstl:jstl:1.2'
     runtime 'taglibs:standard:1.1.2'
 }
 
