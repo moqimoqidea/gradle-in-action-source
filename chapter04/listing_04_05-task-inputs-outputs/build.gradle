@@ -21,6 +21,8 @@ ProjectVersion readVersion() {
 }
 
 task makeReleaseVersion(group: 'versioning', description: 'Makes project a release version.') {
+    logger.quiet 'makeReleaseVersion start.'
+
     inputs.property('release', version.release)
     outputs.file versionFile
 
