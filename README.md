@@ -70,3 +70,43 @@ sourceCompatibility = 1.8
 * [Gretty gradle plugin: Getting started](https://gretty-gradle-plugin.github.io/gretty-doc/Getting-started.html)
 * [Error while replacing jetty plugin to gretty plugin gradle](https://stackoverflow.com/a/50122733)
 * [Error:(2, 0) Plugin with id 'jetty' not found](https://stackoverflow.com/a/53650574)
+
+**启动命令变更**
+
+```shell
+# gradle jettyRun
+gradle appRun
+```
+
+由于 Groovy 2.5 不支持 JDK 16，报错如下:
+
+```text
+Exception in thread "main" org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+General error during semantic analysis: Unsupported class file major version 60
+
+java.lang.IllegalArgumentException: Unsupported class file major version 60
+```
+
+需要以 JDK 8 版本编译，先设定 gradle jdk 属性:
+
+```shell
+~ cat .gradle/gradle.properties
+org.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+```
+
+再将兼容性设定为 1.8:
+
+```shell
+# 在项目 build.gradle 加入
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+```
+
+最终 jetty 成功运行：
+
+```text
+gradle appRun
+19:53:55 INFO  Jetty 9.4.24.v20191120 started and listening on port 8080
+19:53:55 INFO  ToDo Application runs at:
+19:53:55 INFO    http://localhost:8080/todo-webapp-customized
+```
