@@ -1,11 +1,25 @@
 version = '0.1-SNAPSHOT'
 
-task first << { println "first" }
-task second << { println "second" }
-
-task printVersion(dependsOn: [second, first]) << {
-    logger.quiet "Version: $version"
+task first {
+    doLast {
+        println "first"
+    }
+}
+task second {
+    doLast {
+        println "second"
+    }
 }
 
-task third << { println "third" }
-third.dependsOn('printVersion')     
+task printVersion(dependsOn: [second, first]) {
+    doLast {
+        logger.quiet "Version: $version"
+    }
+}
+
+task third {
+    doLast {
+        println "third"
+    }
+}
+third.dependsOn('printVersion')

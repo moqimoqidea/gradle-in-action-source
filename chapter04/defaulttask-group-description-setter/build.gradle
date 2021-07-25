@@ -5,6 +5,6 @@ task printVersion {
     description = 'Prints project version.'
 
     doLast {
-        logger.quiet "Version: $version"
+        logger.quiet "Version: $version, group: $group, description: $description"
     }
 }

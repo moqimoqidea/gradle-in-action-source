@@ -11,4 +11,6 @@ task printVersion {
 }
 
 printVersion.doFirst { println "First action" }
-printVersion << { println "Last action" } 
+printVersion { doLast {
+    println "Last action"
+} }
