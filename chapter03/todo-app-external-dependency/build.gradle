@@ -23,3 +23,24 @@ task runWithJavaExec(type: JavaExec) {
     mainClass = 'com.manning.gia.todo.ToDoApp'
     standardInput = System.in
 }
+
+// moqiFIXME: 2021/7/25 17:08: 目前无法运行，报错信息如下
+// java -cp build/libs/todo-app-external-dependency.jar com.manning.gia.todo.ToDoApp
+//
+// --- To Do Application ---
+// Please make a choice:
+// (a)ll items
+// (f)ind a specific item
+// (i)nsert a new item
+// (u)pdate an existing item
+// (d)elete an existing item
+// (e)xit
+//
+//
+// Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/lang3/CharUtils
+// 	at com.manning.gia.todo.ToDoApp.main(ToDoApp.java:18)
+// Caused by: java.lang.ClassNotFoundException: org.apache.commons.lang3.CharUtils
+// 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:636)
+// 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:182)
+// 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)
+// 	... 1 more
