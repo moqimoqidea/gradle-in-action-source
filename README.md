@@ -44,3 +44,23 @@ java -cp build/libs/todo-app.jar com.manning.gia.todo.ToDoApp
 # warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
 sourceCompatibility = 1.8
 ```
+
+### 命令升级
+
+#### compile -> implementation
+
+* [What's the difference between implementation, api and compile in Gradle?](https://stackoverflow.com/a/44493379)
+* [API and implementation separation](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)
+* [Gradle 依赖配置 api VS implementation](https://www.jianshu.com/p/dd932f951137)
+
+#### runtime -> runtimeOnly
+
+* [runtime finally removed in Gradle 7](https://stackoverflow.com/a/66910991)
+
+#### classesDir -> classesDirs
+
+* [Gradle: Could not get unknown property 'classesDir' for main classes](https://stackoverflow.com/a/57957298)
+
+#### main -> mainClass
+
+> The JavaExec.main property has been deprecated. This is scheduled to be removed in Gradle 8.0. Please use the mainClass property instead. See [JavaExec:main](https://docs.gradle.org/7.1.1/dsl/org.gradle.api.tasks.JavaExec.html#org.gradle.api.tasks.JavaExec:main) for more details.
