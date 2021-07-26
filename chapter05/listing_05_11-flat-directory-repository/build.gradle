@@ -5,19 +5,22 @@ configurations {
     }
 }
 
-task deployToLocalTomcat << {
-    FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
-    ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
+task deployToLocalTomcat {
+    doLast {
+        FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
+        ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
 
-    ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
-        configuration {
-            deployable(type: 'war', file: 'todo.war')
+        ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
+            configuration {
+                deployable(type: 'war', file: 'todo.war')
+            }
+
+            zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
         }
-
-        zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
     }
 }
 
+// 从 flat 目录仓库中获取的 Cargo依赖声明
 dependencies {
     cargo name: 'activation', version: '1.1'
     cargo name: 'ant', version: '1.7.1'
