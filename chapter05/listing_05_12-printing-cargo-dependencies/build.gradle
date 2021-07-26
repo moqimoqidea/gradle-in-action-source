@@ -5,16 +5,18 @@ configurations {
     }
 }
 
-task deployToLocalTomcat << {
-    FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
-    ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
+task deployToLocalTomcat {
+    doLast {
+        FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
+        ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
 
-    ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
-        configuration {
-            deployable(type: 'war', file: 'todo.war')
+        ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
+            configuration {
+                deployable(type: 'war', file: 'todo.war')
+            }
+
+            zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
         }
-
-        zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
     }
 }
 
@@ -26,8 +28,11 @@ repositories {
     mavenCentral()
 }
 
-task printDependencies << {
-    configurations.getByName('cargo').each { dependency ->
-        println dependency
+task printDependencies {
+    doLast {
+        // 打印所有的 cargo 依赖的连接文件路径
+        configurations.getByName('cargo').each { dependency ->
+            println dependency
+        }
     }
 }
