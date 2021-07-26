@@ -28,6 +28,8 @@ repositories {
     mavenCentral()
 }
 
+// gradle -q dependencyInsight --configuration cargo --dependency xml-apis:xml-apis
+// 观察版本被选择的原因: Selection reasons
 configurations.cargo.resolutionStrategy {
     // 当遇到版本冲突时让构建失败
     failOnVersionConflict()

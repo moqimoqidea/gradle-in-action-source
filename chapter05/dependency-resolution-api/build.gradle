@@ -5,17 +5,19 @@ configurations {
     }
 }
 
-task deployToLocalTomcat << {
-    FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
-    println configurations.getByName('cargo').asPath
-    ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
+task deployToLocalTomcat {
+    doLast {
+        FileTree cargoDependencies = configurations.getByName('cargo').asFileTree
+        println configurations.getByName('cargo').asPath
+        ant.taskdef(resource: 'cargo.tasks', classpath: cargoDependencies.asPath)
 
-    ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
-        configuration {
-            deployable(type: 'war', file: 'todo.war')
+        ant.cargo(containerId: 'tomcat7x', action: 'run', output: "$buildDir/output.log") {
+            configuration {
+                deployable(type: 'war', file: 'todo.war')
+            }
+
+            zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
         }
-
-        zipUrlInstaller(installUrl: 'http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.32/bin/apache-tomcat-7.0.32.zip')
     }
 }
 
@@ -25,10 +27,12 @@ task copyDependenciesToLocalDir(type: Copy) {
     into "${System.properties['user.home']}/libs/cargo"
 }
 
-task printDependencies << {
-    configurations.cargo.incoming.resolutionResult.allDependencies { DependencyResult dependencyResult ->
-        ModuleVersionSelector selector = dependencyResult.requested
-        println "$selector.group:$selector.name:$selector.version ($selector)"
+task printDependencies {
+    doLast {
+        configurations.cargo.incoming.resolutionResult.allDependencies { DependencyResult dependencyResult ->
+            ModuleVersionSelector selector = dependencyResult.requested
+            println "$selector.group:$selector.name:$selector.version ($selector)"
+        }
     }
 }
 
