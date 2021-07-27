@@ -57,6 +57,14 @@ sourceCompatibility = 1.8
 
 * [runtime finally removed in Gradle 7](https://stackoverflow.com/a/66910991)
 
+#### testCompile -> testImplementation
+
+* [testCompile finally removed in Gradle 7](https://stackoverflow.com/a/66910991)
+
+#### testRuntime -> testRuntimeOnly
+
+* [testRuntime finally removed in Gradle 7](https://stackoverflow.com/a/66910991)
+
 #### classesDir -> classesDirs
 
 * [Gradle: Could not get unknown property 'classesDir' for main classes](https://stackoverflow.com/a/57957298)
