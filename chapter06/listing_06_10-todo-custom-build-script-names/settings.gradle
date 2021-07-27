@@ -3,5 +3,6 @@ include 'todo-model', 'todo-repository', 'todo-web'
 rootProject.name = 'todo'
 
 rootProject.children.each {
+    // 通过使用子项目的名称, 添加文件扩展名 .gradle 并去除前缀, 为子项目设置自定义的构建文件名
     it.buildFileName = it.name + '.gradle' - 'todo-'
 }
