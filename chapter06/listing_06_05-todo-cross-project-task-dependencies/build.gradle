@@ -3,8 +3,10 @@ ext.projectIds = ['group': 'com.manning.gia', 'version': '0.1']
 group = projectIds.group
 version = projectIds.version
 
-task hello << {
-    println 'Hello from root project'
+task hello {
+    doLast {
+        println 'Hello from root project'
+    }
 }
 
 project(':model') {
@@ -12,8 +14,11 @@ project(':model') {
     version = projectIds.version
     apply plugin: 'java'
 
-    task hello(dependsOn: ':repository:hello') << {
-        println 'Hello from model project'
+    // 声明此 task 依赖 repository 模块的 hello task
+    task hello(dependsOn: ':repository:hello') {
+        doLast {
+            println 'Hello from model project'
+        }
     }
 }
 
@@ -23,11 +28,13 @@ project(':repository') {
     apply plugin: 'java'
 
     dependencies {
-        compile project(':model')
+        implementation project(':model')
     }
 
-    task hello << {
-        println 'Hello from repository project'
+    task hello {
+        doLast {
+            println 'Hello from repository project'
+        }
     }
 }
 
@@ -43,7 +50,8 @@ project(':web') {
     }
 
     dependencies {
-        compile project(':repository')
+        implementation project(':model')
+        implementation project(':repository')
         providedCompile 'javax.servlet:servlet-api:2.5'
         implementation 'jstl:jstl:1.2'
     }
