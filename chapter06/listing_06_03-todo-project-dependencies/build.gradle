@@ -31,7 +31,10 @@ project(':web') {
         mavenCentral()
     }
 
+    // 随着 Gradle 的更新传递的依赖性经过调整，需要在 web 里加上 model 的依赖
     dependencies {
+        // 使用 :model 方式声明编译时依赖项目
+        implementation project(':model')
         // 使用 :repository 方式声明编译时依赖项目
         implementation project(':repository')
         providedCompile 'javax.servlet:servlet-api:2.5'
