@@ -13,6 +13,7 @@ test {
         events 'passed', 'skipped', 'failed'
     }
 
+    // 并行执行测试
     forkEvery = 5
     maxParallelForks = determineMaxParallelForks()
 }
