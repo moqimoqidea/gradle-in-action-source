@@ -18,7 +18,15 @@ task testNG(type: Test) {
 
 test.dependsOn testNG
 
+// 汇聚测试报告
 task aggregateTestReports(type: TestReport) {
+    // moqiFIXME: 2021/7/30 23:39: 这里出现了一个警告，但是目前没有找到合适的替换方法
+    // gradle :repository:test --warning-mode all
+    //
+    // > Configure project :repository
+    // The Report.destination property has been deprecated. This is scheduled to be removed in Gradle 8.0. Please use the outputLocation property instead. See https://docs.gradle.org/7.1.1/dsl/org.gradle.api.reporting.Report.html#org.gradle.api.reporting.Report:destination for more details.
+    //         at build_6cg6wa3k17p403pe3dtgb1y6s$_run_closure4.doCall(/Users/moqi/Downloads/gradle-in-action-source/chapter07/listing_07_06-test-report-aggregation/repository/build.gradle:23)
+    //         (Run with --stacktrace to get the full stack trace of this deprecation warning.)
     destinationDir = test.reports.html.destination
     reportOn test, testNG
 }

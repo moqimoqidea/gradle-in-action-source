@@ -4,6 +4,7 @@ repositories {
     mavenCentral()
 }
 
+// 混合 junit, testNG, spock 测试框架
 dependencies {
     implementation project(':model')
     testImplementation 'junit:junit:4.11'
