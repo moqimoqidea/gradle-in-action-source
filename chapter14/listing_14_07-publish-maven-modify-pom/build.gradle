@@ -12,7 +12,7 @@ dependencies {
     compile localGroovy()
     compile gradleApi()
     compile 'com.cloudbees:cloudbees-api-client:1.4.0'
-    testCompile 'org.spockframework:spock-core:0.6-groovy-1.8'
+    testImplementation 'org.spockframework:spock-core:0.6-groovy-1.8'
 }
 
 task sourcesJar(type: Jar) {

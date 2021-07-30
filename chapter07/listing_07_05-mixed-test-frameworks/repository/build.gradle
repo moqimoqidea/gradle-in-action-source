@@ -5,11 +5,11 @@ repositories {
 }
 
 dependencies {
-    compile project(':model')
-    testCompile 'junit:junit:4.11'
-    testCompile 'org.testng:testng:6.8'
-    testCompile 'org.codehaus.groovy:groovy:2.0.6'
-    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    implementation project(':model')
+    testImplementation 'junit:junit:4.11'
+    testImplementation 'org.testng:testng:6.8'
+    testImplementation 'org.codehaus.groovy:groovy:2.0.6'
+    testImplementation 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
 
 task testNG(type: Test) {

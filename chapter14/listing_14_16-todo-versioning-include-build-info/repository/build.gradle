@@ -3,7 +3,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':model')
+    implementation project(':model')
     runtime 'com.h2database:h2:1.3.170'
-    testCompile 'junit:junit:4.11'
+    testImplementation 'junit:junit:4.11'
 }
