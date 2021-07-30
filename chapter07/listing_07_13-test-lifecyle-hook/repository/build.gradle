@@ -1,3 +1,5 @@
+// moqiFIXME: 2021/7/31 00:01: Plugin with id 'announce' not found.
+//  目前此插件被移除，官方建议在市场找，后面推进。
 apply plugin: 'announce'
 
 repositories {
@@ -10,6 +12,7 @@ dependencies {
 }
 
 test.afterSuite { TestDescriptor suite, TestResult result ->
+    // 测试套件执行后执行代码
     if (!suite.parent && result.getTestCount() > 0) {
         long elapsedTestTime = result.getEndTime() - result.getStartTime()
         announce.announce("Elapsed time for execution of ${result.getTestCount()} test(s): $elapsedTestTime ms", 'local')
