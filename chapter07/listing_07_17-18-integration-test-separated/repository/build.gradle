@@ -19,6 +19,10 @@ sourceSets {
     integrationTest {
         java.srcDir file('src/integTest/java')
         resources.srcDir file('src/integTest/resources')
+        // moqiFIXME: 2021/7/31 00:31: 等待调试此错误依赖问题
+        //  Could not determine the dependencies of task ':repository:integrationTest'.
+        //  Resolving dependency configuration 'testRuntimeOnly' is not allowed as it is defined as 'canBeResolved=false'.
+        //  Instead, a resolvable ('canBeResolved=true') dependency configuration that extends 'testRuntimeOnly' should be resolved.
         compileClasspath = sourceSets.main.output + configurations.testRuntimeOnly
         runtimeClasspath = output + compileClasspath
     }
