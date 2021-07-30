@@ -11,6 +11,7 @@ test {
     systemProperty 'items', '20'
 
     testLogging {
+        // 把日志标准流输出到终端
         showStandardStreams = true
     }
 }

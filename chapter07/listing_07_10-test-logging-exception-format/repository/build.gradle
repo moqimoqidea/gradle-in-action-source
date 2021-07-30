@@ -9,6 +9,7 @@ dependencies {
 
 test {
     testLogging {
+        // 显示异常跟踪栈信息
         exceptionFormat 'full'
     }
 }

@@ -9,6 +9,7 @@ dependencies {
 
 test {
     testLogging {
+        // 记录特定的测试事件
         events 'started', 'passed', 'skipped', 'failed'
     }
 }
