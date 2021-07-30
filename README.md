@@ -133,6 +133,8 @@ wrapper {
 
 #### build-announcements not exist
 
+**目前此插件被移除，官方建议在市场找，后面推进。**
+
 [Upgrading your build from Gradle 5.x to 6.0](https://docs.gradle.org/current/userguide/upgrading_version_5.html)
 
 > The announce and build-announcements plugins have been removed

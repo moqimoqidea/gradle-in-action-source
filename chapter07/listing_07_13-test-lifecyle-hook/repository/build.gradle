@@ -1,5 +1,3 @@
-// moqiFIXME: 2021/7/31 00:01: Plugin with id 'announce' not found.
-//  目前此插件被移除，官方建议在市场找，后面推进。
 apply plugin: 'announce'
 
 repositories {
