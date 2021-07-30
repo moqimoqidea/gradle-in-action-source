@@ -19,7 +19,7 @@ sourceSets {
     integrationTest {
         java.srcDir file('src/integTest/java')
         resources.srcDir file('src/integTest/resources')
-        compileClasspath = sourceSets.main.output + configurations.testRuntime
+        compileClasspath = sourceSets.main.output + configurations.testRuntimeOnly
         runtimeClasspath = output + compileClasspath
     }
 }
@@ -27,7 +27,7 @@ sourceSets {
 task integrationTest(type: Test) {
     description = 'Runs the integration tests.'
     group = 'verification'
-    testClassesDir = sourceSets.integrationTest.output.classesDir
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
     classpath = sourceSets.integrationTest.runtimeClasspath
     reports.html.destination = file("$reports.html.destination/integration")
     reports.junitXml.destination = file("$reports.junitXml.destination/integration")

@@ -37,7 +37,7 @@ sourceSets {
 }
 
 task functionalTest(type: Test) {
-    testClassesDir = sourceSets.functionalTest.output.classesDir
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
     testReportDir = file("$testReportDir/functional")
     testResultsDir = file("$testResultsDir/functional")

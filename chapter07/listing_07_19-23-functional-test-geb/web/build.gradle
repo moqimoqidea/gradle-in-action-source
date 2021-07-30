@@ -52,7 +52,7 @@ task functionalJettyStop(type: org.gradle.api.plugins.jetty.JettyStop) {
 }
 
 task functionalTest(type: Test) {
-    testClassesDir = sourceSets.functionalTest.output.classesDir
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
     reports.html.destination = file("$reports.html.destination/functional")
     reports.junitXml.destination = file("$reports.junitXml.destination/functional")
