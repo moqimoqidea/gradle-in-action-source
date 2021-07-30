@@ -9,7 +9,7 @@ dependencies {
 
 test {
     systemProperty 'items', '20'
-    jvmArgs '-Xms128m', '-Xmx256m', '-XX:MaxPermSize=128m'
+    jvmArgs '-Xms128m', '-Xmx256m'
 
     testLogging {
         showStandardStreams = true
