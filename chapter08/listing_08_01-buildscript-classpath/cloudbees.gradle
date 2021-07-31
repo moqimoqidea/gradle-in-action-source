@@ -1,3 +1,6 @@
+// moqiFIXME: 2021/7/31 10:37:  Specifying custom build file location has been deprecated
+//  gradle -b cloudbees.gradle tasks --warning-mode all
+//  Specifying custom build file location has been deprecated. This is scheduled to be removed in Gradle 8.0. Consult the upgrading guide for further information: https://docs.gradle.org/7.1.1/userguide/upgrading_version_7.html#configuring_custom_build_layout
 buildscript {
     repositories {
         mavenCentral()
